@@ -74,4 +74,5 @@
   E:\TI\mspm0_sdk_2_04_00_06\source\ti\driverlib\m0p\dl_systick.h \
   ..\BSP\MOTER\moter.h ..\BSP\PID\pid.h ..\BSP\ENCODER\encoder.h \
   ..\BSP\XUNJI\xunji.h ..\BSP\XUNJI\..\..\ti_msp_dl_config.h \
-  ..\BSP\M0IMU\imu.h ..\BSP\OLED\oled.h ..\BSP\KEY\key.h
+  ..\BSP\M0IMU\imu.h ..\BSP\OLED\oled.h ..\BSP\KEY\key.h \
+  ..\BSP\PID\heading.h ..\BSP\MPU6050\mpu6050.h

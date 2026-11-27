@@ -72,6 +72,4 @@
   E:\TI\mspm0_sdk_2_04_00_06\source\ti\driverlib\dl_vref.h \
   E:\TI\mspm0_sdk_2_04_00_06\source\ti\driverlib\dl_wwdt.h \
   E:\TI\mspm0_sdk_2_04_00_06\source\ti\driverlib\m0p\dl_interrupt.h \
-  E:\TI\mspm0_sdk_2_04_00_06\source\ti\driverlib\m0p\dl_systick.h \
-  ..\ti_msp_dl_config.h ..\board.h ..\BSP\MOTER\moter.h ..\BSP\PID\pid.h \
-  ..\BSP\ENCODER\encoder.h ..\BSP\M0IMU\imu.h ..\BSP\OLED\oled.h
+  E:\TI\mspm0_sdk_2_04_00_06\source\ti\driverlib\m0p\dl_systick.h

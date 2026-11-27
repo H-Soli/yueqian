@@ -72,5 +72,10 @@ void encoder_function2(void)
 
 void GROUP1_IRQHandler(void)
 {
- if(DL_Interrupt_getPendingGroup(DL_INTERRUPT_GROUP_1)==DL_INTERRUPT_GROUP1_IIDX_GPIOB) encoder_function2();
+ if(DL_Interrupt_getPendingGroup(DL_INTERRUPT_GROUP_1)==DL_INTERRUPT_GROUP1_IIDX_GPIOB){
+  /* PB1 shares GROUP1 with encoders. Acknowledge it without blocking I2C. */
+  if(DL_GPIO_getEnabledInterruptStatus(MPU6050_PORT,MPU6050_INT_PIN_PIN))
+   DL_GPIO_clearInterruptStatus(MPU6050_PORT,MPU6050_INT_PIN_PIN);
+  encoder_function2();
+ }
 }

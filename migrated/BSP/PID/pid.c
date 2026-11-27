@@ -27,19 +27,25 @@ float angle_PID_value(float measure,float calcu)
 }
 
 
-float place_Kp=6,place_Ki=0.4,place_Kd=6;  
+float place_Kp=4.0f,place_Ki=0.0f,place_Kd=3.0f;  
 float place_err;               
 float place_last_err;          
 float place_err_sum=0;         
 float place_err_difference;    
+static uint8_t place_first=1;
+void place_PID_reset(void)
+{
+ place_err_sum=0;place_last_err=0;place_err_difference=0;place_first=1;
+}
 float place_PID_value(float measure,float calcu)
 {
-	place_err = measure - calcu;             
+	place_err = measure - calcu;
+ if(place_first){place_last_err=place_err;place_first=0;}             
 	place_err_sum+=place_err;                      
    place_err_sum = I_xianfu(50,place_err_sum);
 
 
-	place_err_difference = place_err - place_last_err;   
+	place_err_difference += 0.25f*((place_err-place_last_err)-place_err_difference);   
 	place_last_err = place_err;                    
 	return place_Kp*place_err + place_Ki*place_err_sum + place_Kd*place_err_difference;
 

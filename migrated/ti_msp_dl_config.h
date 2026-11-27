@@ -102,8 +102,24 @@ extern "C" {
 #define TIMER_A1_KONG_ZHI_INST                                           (TIMA1)
 #define TIMER_A1_KONG_ZHI_INST_IRQHandler                        TIMA1_IRQHandler
 #define TIMER_A1_KONG_ZHI_INST_INT_IRQN                         (TIMA1_INT_IRQn)
-#define TIMER_A1_KONG_ZHI_INST_LOAD_VALUE                                 (2499U)
+#define TIMER_A1_KONG_ZHI_INST_LOAD_VALUE                                  (499U)
 
+
+
+
+/* Defines for I2C_0 */
+#define I2C_0_INST                                                          I2C1
+#define I2C_0_INST_IRQHandler                                    I2C1_IRQHandler
+#define I2C_0_INST_INT_IRQN                                        I2C1_INT_IRQn
+#define I2C_0_BUS_SPEED_HZ                                                100000
+#define GPIO_I2C_0_SDA_PORT                                                GPIOB
+#define GPIO_I2C_0_SDA_PIN                                         DL_GPIO_PIN_3
+#define GPIO_I2C_0_IOMUX_SDA                                     (IOMUX_PINCM16)
+#define GPIO_I2C_0_IOMUX_SDA_FUNC                      IOMUX_PINCM16_PF_I2C1_SDA
+#define GPIO_I2C_0_SCL_PORT                                                GPIOB
+#define GPIO_I2C_0_SCL_PIN                                         DL_GPIO_PIN_2
+#define GPIO_I2C_0_IOMUX_SCL                                     (IOMUX_PINCM15)
+#define GPIO_I2C_0_IOMUX_SCL_FUNC                      IOMUX_PINCM15_PF_I2C1_SCL
 
 
 /* Defines for UART_1 */
@@ -133,6 +149,17 @@ extern "C" {
 /* Defines for KEY1_PIN_A23: GPIOA.23 with pinCMx 53 on package pin 24 */
 #define KEY_KEY1_PIN_A23_PIN                                    (DL_GPIO_PIN_23)
 #define KEY_KEY1_PIN_A23_IOMUX                                   (IOMUX_PINCM53)
+/* Port definition for Pin Group MPU6050 */
+#define MPU6050_PORT                                                     (GPIOB)
+
+/* Defines for INT_PIN: GPIOB.1 with pinCMx 13 on package pin 48 */
+// groups represented: ["ENCODER","MPU6050"]
+// pins affected: ["Right_B","Right_A","Left_B","Left_A","INT_PIN"]
+#define GPIO_MULTIPLE_GPIOB_INT_IRQN                            (GPIOB_INT_IRQn)
+#define GPIO_MULTIPLE_GPIOB_INT_IIDX            (DL_INTERRUPT_GROUP1_IIDX_GPIOB)
+#define MPU6050_INT_PIN_IIDX                                 (DL_GPIO_IIDX_DIO1)
+#define MPU6050_INT_PIN_PIN                                      (DL_GPIO_PIN_1)
+#define MPU6050_INT_PIN_IOMUX                                    (IOMUX_PINCM13)
 /* Port definition for Pin Group OLED */
 #define OLED_PORT                                                        (GPIOA)
 
@@ -161,9 +188,6 @@ extern "C" {
 #define ENCODER_PORT                                                     (GPIOB)
 
 /* Defines for Right_B: GPIOB.12 with pinCMx 29 on package pin 64 */
-// pins affected by this interrupt request:["Right_B","Right_A","Left_B","Left_A"]
-#define ENCODER_INT_IRQN                                        (GPIOB_INT_IRQn)
-#define ENCODER_INT_IIDX                        (DL_INTERRUPT_GROUP1_IIDX_GPIOB)
 #define ENCODER_Right_B_IIDX                                (DL_GPIO_IIDX_DIO12)
 #define ENCODER_Right_B_PIN                                     (DL_GPIO_PIN_12)
 #define ENCODER_Right_B_IOMUX                                    (IOMUX_PINCM29)
@@ -222,6 +246,7 @@ void SYSCFG_DL_GPIO_init(void);
 void SYSCFG_DL_SYSCTL_init(void);
 void SYSCFG_DL_PWMAB_init(void);
 void SYSCFG_DL_TIMER_A1_KONG_ZHI_init(void);
+void SYSCFG_DL_I2C_0_init(void);
 void SYSCFG_DL_UART_1_init(void);
 
 void SYSCFG_DL_SYSTICK_init(void);

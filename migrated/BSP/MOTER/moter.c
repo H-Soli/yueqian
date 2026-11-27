@@ -1,4 +1,6 @@
 #include "board.h"
+/* Last clamped commands sent to the driver, for startup diagnosis. */
+volatile int motor_command_l=0,motor_command_r=0;
 void PWM_Xianfu(int max,int *pwm){if(*pwm>max)*pwm=max;if(*pwm< -max)*pwm= -max;}
 /* Legacy API order: RIGHT, LEFT. Keep original pin mapping and direction. */
 void Set_Pwm(int right,int left)
@@ -11,4 +13,5 @@ void Set_Pwm(int right,int left)
  /* Force both direction inputs low on zero command for a deterministic stop. */
  if(left==0){Zuo_1_OFF;Zuo_2_OFF;}
  if(right==0){Yuo_1_OFF;Yuo_2_OFF;}
+ motor_command_l=left;motor_command_r=right;
 }

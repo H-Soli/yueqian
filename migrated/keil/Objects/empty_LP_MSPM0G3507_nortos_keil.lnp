@@ -6,11 +6,16 @@
 ".\objects\board.o"
 ".\objects\moter.o"
 ".\objects\pid.o"
+".\objects\heading.o"
 ".\objects\encoder.o"
 ".\objects\xunji.o"
 ".\objects\imu.o"
 ".\objects\oled.o"
 ".\objects\key.o"
+".\objects\mpu_port.o"
+".\objects\mpu6050.o"
+".\objects\inv_mpu.o"
+".\objects\inv_mpu_dmp_motion_driver.o"
 --strict --scatter "./mspm0g3507.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
